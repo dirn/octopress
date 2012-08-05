@@ -13,7 +13,7 @@ most people have to deal with.
 
 To get the current date and time you go through a few different submodules:
 
-``` python Get current date and time
+{% codeblock lang:python Get current date and time %}
 >>> from datetime import date
 >>> date.today()
 datetime.date(2012, 5, 24)
@@ -26,18 +26,18 @@ datetime.datetime(2012, 5, 24, 18, 3, 25, 99288)
 >>>
 >>> datetime.time(datetime.now())
 datetime.time(14, 3, 25, 100212)
-```
+{% endcodeblock %}
 
 Trying to calculate a new `datetime` from an existing one requires introducing
 another submodule:
 
-``` python Calculate new datetimes
+{% codeblock lang:python Calculate new datetimes %}
 >>> from datetime import datetime, timedelta
 >>> datetime.now() + timedelta(days=1)
 datetime.datetime(2012, 5, 25, 14, 3, 41, 721367)
 >>> datetime.now() + timedelta(weeks=2, hours=-3)
 datetime.datetime(2012, 6, 7, 11, 3, 41, 722905)
-```
+{% endcodeblock %}
 
 If you've ever worked with `timedelta` objects before, you might have the same
 complaint that I do: it only works with definitive amounts of time. Need to add
@@ -53,7 +53,7 @@ four different time zones.
 
 We came up with a solution for this that seemed to work.
 
-``` python First attempt at changing time zones
+{% codeblock lang:python First attempt at changing time zones %}
 >>> from datetime import datetime
 >>> import pytz
 >>>
@@ -71,14 +71,14 @@ datetime.datetime(2012, 5, 24, 14, 4, 0, 566817)
 datetime.datetime(2012, 5, 24, 18, 4, 0, 566817)
 >>> dt.replace(tzinfo=eastern).astimezone(pytz.UTC).replace(tzinfo=None)
 datetime.datetime(2012, 5, 24, 19, 4, 0, 566448)
-```
+{% endcodeblock %}
 
 As you can see, going from UTC to Eastern works just fine. When going in the
 other direction, however, an hour is lost.
 
 After some more digging around we came up with a better approach.
 
-``` python Second attempt at changing time zones
+{% codeblock lang:python Second attempt at changing time zones %}
 >>> from datetime import datetime
 >>> import pytz
 >>>
@@ -96,7 +96,7 @@ datetime.datetime(2012, 5, 24, 14, 4, 20, 436485)
 datetime.datetime(2012, 5, 24, 18, 4, 20, 436485)
 >>> eastern.localize(dt).astimezone(pytz.UTC).replace(tzinfo=None)
 datetime.datetime(2012, 5, 24, 18, 4, 20, 436153)
-```
+{% endcodeblock %}
 
 This new method managed to correctly switch between time zones. But that's a
 lot of somewhat awkward code to have to type out. Sure a function can be created
@@ -109,7 +109,7 @@ where When.py comes in.
 
 Here's how to redo all of the above code:
 
-``` python When.py
+{% codeblock lang:python When.py %}
 >>> import when
 >>>
 >>> when.today()  # date.today()
@@ -127,7 +127,7 @@ datetime.datetime(2012, 3, 24, 14, 4, 37, 66268)
 >>> # convert_timezone(...)
 ... when.shift(when.now(utc=True), from_tz='UTC', to_tz='America/New_York')
 datetime.datetime(2012, 5, 24, 14, 4, 37, 67562)
-```
+{% endcodeblock %}
 
 Check out the documentation on
 [Read the Docs](http://readthedocs.org/docs/whenpy/en/latest/)

@@ -115,41 +115,47 @@ your script.</p>
 <p>Switches is a Python module that aims to make the whole process easier. It
 uses the code you're already writing to cut out the boilerplate.</p>
 
-<p>``` python Add a command
-@command
-def spam():</p>
+<div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>Add a command </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="nd">@command</span>
+</span><span class='line'><span class="k">def</span> <span class="nf">spam</span><span class="p">():</span>
+</span><span class='line'>    <span class="sd">&quot;&quot;&quot;This function prints &#39;eggs&#39;&quot;&quot;&quot;</span>
+</span><span class='line'>    <span class="k">print</span> <span class="s">&#39;eggs&#39;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
 
-<pre><code>"""This function prints 'eggs'"""
-print 'eggs'
-</code></pre>
-
-<p>```</p>
 
 <p>This is all the code that's needed to add a command to your script called
 <code>spam</code>. This command doesn't do a whole lot, though, and odds are you're going
 to want to add a command that can take some arguments.</p>
 
-<p>``` python Add a command with an argument</p>
+<div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>Add a command with an argument </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="c"># Positional argument</span>
+</span><span class='line'><span class="nd">@command</span>
+</span><span class='line'><span class="k">def</span> <span class="nf">spam</span><span class="p">(</span><span class="n">eggs</span><span class="p">):</span>
+</span><span class='line'>    <span class="sd">&quot;&quot;&quot;This function prints the value of eggs&quot;&quot;&quot;</span>
+</span><span class='line'>    <span class="k">print</span> <span class="n">eggs</span>
+</span><span class='line'>
+</span><span class='line'><span class="c"># Optional arguments</span>
+</span><span class='line'><span class="nd">@command</span>
+</span><span class='line'><span class="k">def</span> <span class="nf">eggs</span><span class="p">(</span><span class="n">spam</span><span class="o">=</span><span class="s">&#39;spam&#39;</span><span class="p">):</span>
+</span><span class='line'>    <span class="sd">&quot;&quot;&quot;This function prints the value of spam&quot;&quot;&quot;</span>
+</span><span class='line'>    <span class="k">print</span> <span class="n">spam</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
 
-<h1>Positional argument</h1>
-
-<p>@command
-def spam(eggs):</p>
-
-<pre><code>"""This function prints the value of eggs"""
-print eggs
-</code></pre>
-
-<h1>Optional arguments</h1>
-
-<p>@command
-def eggs(spam='spam'):</p>
-
-<pre><code>"""This function prints the value of spam"""
-print spam
-</code></pre>
-
-<p>```</p>
 
 <p>Once all of your commands have been written, invoking the whole thing only
 requires one additional line, a call to <code>commandline()</code>. <code>commandline()</code> takes

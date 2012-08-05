@@ -17,18 +17,18 @@ your script.
 Switches is a Python module that aims to make the whole process easier. It
 uses the code you're already writing to cut out the boilerplate.
 
-``` python Add a command
+{% codeblock lang:python Add a command %}
 @command
 def spam():
     """This function prints 'eggs'"""
     print 'eggs'
-```
+{% endcodeblock %}
 
 This is all the code that's needed to add a command to your script called
 `spam`. This command doesn't do a whole lot, though, and odds are you're going
 to want to add a command that can take some arguments.
 
-``` python Add a command with an argument
+{% codeblock lang:python Add a command with an argument %}
 # Positional argument
 @command
 def spam(eggs):
@@ -40,7 +40,7 @@ def spam(eggs):
 def eggs(spam='spam'):
     """This function prints the value of spam"""
     print spam
-```
+{% endcodeblock %}
 
 Once all of your commands have been written, invoking the whole thing only
 requires one additional line, a call to `commandline()`. `commandline()` takes

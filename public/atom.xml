@@ -4,7 +4,7 @@
   <title><![CDATA[Andy Dirnberger]]></title>
   <link href="http://andydirnberger.com/atom.xml" rel="self"/>
   <link href="http://andydirnberger.com/"/>
-  <updated>2012-08-04T01:04:23-04:00</updated>
+  <updated>2012-08-05T14:54:37-04:00</updated>
   <id>http://andydirnberger.com/</id>
   <author>
     <name><![CDATA[Andy Dirnberger]]></name>
@@ -30,41 +30,47 @@ your script.</p>
 <p>Switches is a Python module that aims to make the whole process easier. It
 uses the code you&#8217;re already writing to cut out the boilerplate.</p>
 
-<p>&#8220;` python Add a command
-@command
-def spam():</p>
+<figure class='code'><figcaption><span>Add a command </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="nd">@command</span>
+</span><span class='line'><span class="k">def</span> <span class="nf">spam</span><span class="p">():</span>
+</span><span class='line'>    <span class="sd">&quot;&quot;&quot;This function prints &#39;eggs&#39;&quot;&quot;&quot;</span>
+</span><span class='line'>    <span class="k">print</span> <span class="s">&#39;eggs&#39;</span>
+</span></code></pre></td></tr></table></div></figure>
 
-<pre><code>"""This function prints 'eggs'"""
-print 'eggs'
-</code></pre>
-
-<p>&#8220;`</p>
 
 <p>This is all the code that&#8217;s needed to add a command to your script called
 <code>spam</code>. This command doesn&#8217;t do a whole lot, though, and odds are you&#8217;re going
 to want to add a command that can take some arguments.</p>
 
-<p>&#8220;` python Add a command with an argument</p>
+<figure class='code'><figcaption><span>Add a command with an argument </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="c"># Positional argument</span>
+</span><span class='line'><span class="nd">@command</span>
+</span><span class='line'><span class="k">def</span> <span class="nf">spam</span><span class="p">(</span><span class="n">eggs</span><span class="p">):</span>
+</span><span class='line'>    <span class="sd">&quot;&quot;&quot;This function prints the value of eggs&quot;&quot;&quot;</span>
+</span><span class='line'>    <span class="k">print</span> <span class="n">eggs</span>
+</span><span class='line'>
+</span><span class='line'><span class="c"># Optional arguments</span>
+</span><span class='line'><span class="nd">@command</span>
+</span><span class='line'><span class="k">def</span> <span class="nf">eggs</span><span class="p">(</span><span class="n">spam</span><span class="o">=</span><span class="s">&#39;spam&#39;</span><span class="p">):</span>
+</span><span class='line'>    <span class="sd">&quot;&quot;&quot;This function prints the value of spam&quot;&quot;&quot;</span>
+</span><span class='line'>    <span class="k">print</span> <span class="n">spam</span>
+</span></code></pre></td></tr></table></div></figure>
 
-<h1>Positional argument</h1>
-
-<p>@command
-def spam(eggs):</p>
-
-<pre><code>"""This function prints the value of eggs"""
-print eggs
-</code></pre>
-
-<h1>Optional arguments</h1>
-
-<p>@command
-def eggs(spam=&#8217;spam&#8217;):</p>
-
-<pre><code>"""This function prints the value of spam"""
-print spam
-</code></pre>
-
-<p>&#8220;`</p>
 
 <p>Once all of your commands have been written, invoking the whole thing only
 requires one additional line, a call to <code>commandline()</code>. <code>commandline()</code> takes
@@ -115,33 +121,50 @@ most people have to deal with.</p>
 
 <p>To get the current date and time you go through a few different submodules:</p>
 
-<p>&#8220;` python Get current date and time</p>
+<figure class='code'><figcaption><span>Get current date and time </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span>
+</span><span class='line'><span class="o">&gt;&gt;&gt;</span> <span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span>
+</span><span class='line'><span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="p">(</span><span class="mi">2012</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">24</span><span class="p">)</span>
+</span><span class='line'><span class="o">&gt;&gt;&gt;</span>
+</span><span class='line'><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+</span><span class='line'><span class="o">&gt;&gt;&gt;</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>  <span class="c"># local time</span>
+</span><span class='line'><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2012</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">98829</span><span class="p">)</span>
+</span><span class='line'><span class="o">&gt;&gt;&gt;</span> <span class="n">datetime</span><span class="o">.</span><span class="n">utcnow</span><span class="p">()</span>  <span class="c"># UTC</span>
+</span><span class='line'><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2012</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">99288</span><span class="p">)</span>
+</span><span class='line'><span class="o">&gt;&gt;&gt;</span>
+</span><span class='line'><span class="o">&gt;&gt;&gt;</span> <span class="n">datetime</span><span class="o">.</span><span class="n">time</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">())</span>
+</span><span class='line'><span class="n">datetime</span><span class="o">.</span><span class="n">time</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">100212</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
 
-<blockquote><blockquote><blockquote><p>from datetime import date
-date.today()
-datetime.date(2012, 5, 24)</p>
-
-<p>from datetime import datetime
-datetime.now()  # local time
-datetime.datetime(2012, 5, 24, 14, 3, 25, 98829)
-datetime.utcnow()  # UTC
-datetime.datetime(2012, 5, 24, 18, 3, 25, 99288)</p>
-
-<p>datetime.time(datetime.now())
-datetime.time(14, 3, 25, 100212)
-&#8220;`</p></blockquote></blockquote></blockquote>
 
 <p>Trying to calculate a new <code>datetime</code> from an existing one requires introducing
 another submodule:</p>
 
-<p>&#8220;` python Calculate new datetimes</p>
+<figure class='code'><figcaption><span>Calculate new datetimes </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">timedelta</span>
+</span><span class='line'><span class="o">&gt;&gt;&gt;</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span> <span class="o">+</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</span><span class='line'><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2012</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">41</span><span class="p">,</span> <span class="mi">721367</span><span class="p">)</span>
+</span><span class='line'><span class="o">&gt;&gt;&gt;</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span> <span class="o">+</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">weeks</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">hours</span><span class="o">=-</span><span class="mi">3</span><span class="p">)</span>
+</span><span class='line'><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2012</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">41</span><span class="p">,</span> <span class="mi">722905</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
 
-<blockquote><blockquote><blockquote><p>from datetime import datetime, timedelta
-datetime.now() + timedelta(days=1)
-datetime.datetime(2012, 5, 25, 14, 3, 41, 721367)
-datetime.now() + timedelta(weeks=2, hours=-3)
-datetime.datetime(2012, 6, 7, 11, 3, 41, 722905)
-&#8220;`</p></blockquote></blockquote></blockquote>
 
 <p>If you&#8217;ve ever worked with <code>timedelta</code> objects before, you might have the same
 complaint that I do: it only works with definitive amounts of time. Need to add
@@ -157,52 +180,86 @@ four different time zones.</p>
 
 <p>We came up with a solution for this that seemed to work.</p>
 
-<p>&#8220;` python First attempt at changing time zones</p>
+<figure class='code'><figcaption><span>First attempt at changing time zones </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+</span><span class='line'><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">pytz</span>
+</span><span class='line'><span class="o">&gt;&gt;&gt;</span>
+</span><span class='line'><span class="o">&gt;&gt;&gt;</span> <span class="n">dt</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+</span><span class='line'><span class="o">&gt;&gt;&gt;</span> <span class="n">dt_utc</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">utcnow</span><span class="p">()</span>
+</span><span class='line'><span class="o">&gt;&gt;&gt;</span>
+</span><span class='line'><span class="o">&gt;&gt;&gt;</span> <span class="n">eastern</span> <span class="o">=</span> <span class="n">pytz</span><span class="o">.</span><span class="n">timezone</span><span class="p">(</span><span class="s">&#39;America/New_York&#39;</span><span class="p">)</span>
+</span><span class='line'><span class="o">&gt;&gt;&gt;</span>
+</span><span class='line'><span class="o">&gt;&gt;&gt;</span> <span class="n">dt</span>
+</span><span class='line'><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2012</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">566448</span><span class="p">)</span>
+</span><span class='line'><span class="o">&gt;&gt;&gt;</span> <span class="n">dt_utc</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">tzinfo</span><span class="o">=</span><span class="n">pytz</span><span class="o">.</span><span class="n">UTC</span><span class="p">)</span><span class="o">.</span><span class="n">astimezone</span><span class="p">(</span><span class="n">eastern</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">tzinfo</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+</span><span class='line'><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2012</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">566817</span><span class="p">)</span>
+</span><span class='line'><span class="o">&gt;&gt;&gt;</span>
+</span><span class='line'><span class="o">&gt;&gt;&gt;</span> <span class="n">dt_utc</span>
+</span><span class='line'><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2012</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">566817</span><span class="p">)</span>
+</span><span class='line'><span class="o">&gt;&gt;&gt;</span> <span class="n">dt</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">tzinfo</span><span class="o">=</span><span class="n">eastern</span><span class="p">)</span><span class="o">.</span><span class="n">astimezone</span><span class="p">(</span><span class="n">pytz</span><span class="o">.</span><span class="n">UTC</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">tzinfo</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+</span><span class='line'><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2012</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">566448</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
 
-<blockquote><blockquote><blockquote><p>from datetime import datetime
-import pytz</p>
-
-<p>dt = datetime.now()
-dt_utc = datetime.utcnow()</p>
-
-<p>eastern = pytz.timezone(&#8216;America/New_York&#8217;)</p>
-
-<p>dt
-datetime.datetime(2012, 5, 24, 14, 4, 0, 566448)
-dt_utc.replace(tzinfo=pytz.UTC).astimezone(eastern).replace(tzinfo=None)
-datetime.datetime(2012, 5, 24, 14, 4, 0, 566817)</p>
-
-<p>dt_utc
-datetime.datetime(2012, 5, 24, 18, 4, 0, 566817)
-dt.replace(tzinfo=eastern).astimezone(pytz.UTC).replace(tzinfo=None)
-datetime.datetime(2012, 5, 24, 19, 4, 0, 566448)
-&#8220;`</p></blockquote></blockquote></blockquote>
 
 <p>As you can see, going from UTC to Eastern works just fine. When going in the
 other direction, however, an hour is lost.</p>
 
 <p>After some more digging around we came up with a better approach.</p>
 
-<p>&#8220;` python Second attempt at changing time zones</p>
+<figure class='code'><figcaption><span>Second attempt at changing time zones </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+</span><span class='line'><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">pytz</span>
+</span><span class='line'><span class="o">&gt;&gt;&gt;</span>
+</span><span class='line'><span class="o">&gt;&gt;&gt;</span> <span class="n">dt</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+</span><span class='line'><span class="o">&gt;&gt;&gt;</span> <span class="n">dt_utc</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">utcnow</span><span class="p">()</span>
+</span><span class='line'><span class="o">&gt;&gt;&gt;</span>
+</span><span class='line'><span class="o">&gt;&gt;&gt;</span> <span class="n">eastern</span> <span class="o">=</span> <span class="n">pytz</span><span class="o">.</span><span class="n">timezone</span><span class="p">(</span><span class="s">&#39;America/New_York&#39;</span><span class="p">)</span>
+</span><span class='line'><span class="o">&gt;&gt;&gt;</span>
+</span><span class='line'><span class="o">&gt;&gt;&gt;</span> <span class="n">dt</span>
+</span><span class='line'><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2012</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">436153</span><span class="p">)</span>
+</span><span class='line'><span class="o">&gt;&gt;&gt;</span> <span class="n">pytz</span><span class="o">.</span><span class="n">UTC</span><span class="o">.</span><span class="n">localize</span><span class="p">(</span><span class="n">dt_utc</span><span class="p">)</span><span class="o">.</span><span class="n">astimezone</span><span class="p">(</span><span class="n">eastern</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">tzinfo</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+</span><span class='line'><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2012</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">436485</span><span class="p">)</span>
+</span><span class='line'><span class="o">&gt;&gt;&gt;</span>
+</span><span class='line'><span class="o">&gt;&gt;&gt;</span> <span class="n">dt_utc</span>
+</span><span class='line'><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2012</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">436485</span><span class="p">)</span>
+</span><span class='line'><span class="o">&gt;&gt;&gt;</span> <span class="n">eastern</span><span class="o">.</span><span class="n">localize</span><span class="p">(</span><span class="n">dt</span><span class="p">)</span><span class="o">.</span><span class="n">astimezone</span><span class="p">(</span><span class="n">pytz</span><span class="o">.</span><span class="n">UTC</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">tzinfo</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+</span><span class='line'><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2012</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">436153</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
 
-<blockquote><blockquote><blockquote><p>from datetime import datetime
-import pytz</p>
-
-<p>dt = datetime.now()
-dt_utc = datetime.utcnow()</p>
-
-<p>eastern = pytz.timezone(&#8216;America/New_York&#8217;)</p>
-
-<p>dt
-datetime.datetime(2012, 5, 24, 14, 4, 20, 436153)
-pytz.UTC.localize(dt_utc).astimezone(eastern).replace(tzinfo=None)
-datetime.datetime(2012, 5, 24, 14, 4, 20, 436485)</p>
-
-<p>dt_utc
-datetime.datetime(2012, 5, 24, 18, 4, 20, 436485)
-eastern.localize(dt).astimezone(pytz.UTC).replace(tzinfo=None)
-datetime.datetime(2012, 5, 24, 18, 4, 20, 436153)
-&#8220;`</p></blockquote></blockquote></blockquote>
 
 <p>This new method managed to correctly switch between time zones. But that&#8217;s a
 lot of somewhat awkward code to have to type out. Sure a function can be created
@@ -215,27 +272,43 @@ where When.py comes in.</p>
 
 <p>Here&#8217;s how to redo all of the above code:</p>
 
-<p>&#8220;` python When.py</p>
+<figure class='code'><figcaption><span>When.py </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">when</span>
+</span><span class='line'><span class="o">&gt;&gt;&gt;</span>
+</span><span class='line'><span class="o">&gt;&gt;&gt;</span> <span class="n">when</span><span class="o">.</span><span class="n">today</span><span class="p">()</span>  <span class="c"># date.today()</span>
+</span><span class='line'><span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="p">(</span><span class="mi">2012</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">24</span><span class="p">)</span>
+</span><span class='line'><span class="o">&gt;&gt;&gt;</span> <span class="n">when</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>  <span class="c"># datetime.now()</span>
+</span><span class='line'><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2012</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">37</span><span class="p">,</span> <span class="mi">64295</span><span class="p">)</span>
+</span><span class='line'><span class="o">&gt;&gt;&gt;</span> <span class="n">when</span><span class="o">.</span><span class="n">now</span><span class="p">(</span><span class="n">utc</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>  <span class="c"># datetime.utcnow()</span>
+</span><span class='line'><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2012</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">37</span><span class="p">,</span> <span class="mi">64796</span><span class="p">)</span>
+</span><span class='line'><span class="o">&gt;&gt;&gt;</span>
+</span><span class='line'><span class="o">&gt;&gt;&gt;</span> <span class="n">when</span><span class="o">.</span><span class="n">future</span><span class="p">(</span><span class="n">years</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>  <span class="c"># datetime.now() + timedelta(???)</span>
+</span><span class='line'><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2013</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">37</span><span class="p">,</span> <span class="mi">65610</span><span class="p">)</span>
+</span><span class='line'><span class="o">&gt;&gt;&gt;</span> <span class="n">when</span><span class="o">.</span><span class="n">past</span><span class="p">(</span><span class="n">months</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>  <span class="c"># datetime.now() - timedelta(???)</span>
+</span><span class='line'><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2012</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">37</span><span class="p">,</span> <span class="mi">66268</span><span class="p">)</span>
+</span><span class='line'><span class="o">&gt;&gt;&gt;</span>
+</span><span class='line'><span class="o">&gt;&gt;&gt;</span> <span class="c"># convert_timezone(...)</span>
+</span><span class='line'><span class="o">...</span> <span class="n">when</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="n">when</span><span class="o">.</span><span class="n">now</span><span class="p">(</span><span class="n">utc</span><span class="o">=</span><span class="bp">True</span><span class="p">),</span> <span class="n">from_tz</span><span class="o">=</span><span class="s">&#39;UTC&#39;</span><span class="p">,</span> <span class="n">to_tz</span><span class="o">=</span><span class="s">&#39;America/New_York&#39;</span><span class="p">)</span>
+</span><span class='line'><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2012</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">37</span><span class="p">,</span> <span class="mi">67562</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
 
-<blockquote><blockquote><blockquote><p>import when</p>
-
-<p>when.today()  # date.today()
-datetime.date(2012, 5, 24)
-when.now()  # datetime.now()
-datetime.datetime(2012, 5, 24, 14, 4, 37, 64295)
-when.now(utc=True)  # datetime.utcnow()
-datetime.datetime(2012, 5, 24, 18, 4, 37, 64796)</p>
-
-<p>when.future(years=1)  # datetime.now() + timedelta(???)
-datetime.datetime(2013, 5, 24, 14, 4, 37, 65610)
-when.past(months=2)  # datetime.now() - timedelta(???)
-datetime.datetime(2012, 3, 24, 14, 4, 37, 66268)</p>
-
-<h1>convert_timezone(&#8230;)</h1>
-
-<p>&#8230; when.shift(when.now(utc=True), from_tz=&#8217;UTC&#8217;, to_tz=&#8217;America/New_York&#8217;)
-datetime.datetime(2012, 5, 24, 14, 4, 37, 67562)
-&#8220;`</p></blockquote></blockquote></blockquote>
 
 <p>Check out the documentation on
 <a href="http://readthedocs.org/docs/whenpy/en/latest/">Read the Docs</a>
